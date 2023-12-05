@@ -1,0 +1,1 @@
+ python get_articles_title_publicaton_date_and_description.py -i ../../data/collected_articles -o ../../data/filtered_data/all_articles_specs.csv
