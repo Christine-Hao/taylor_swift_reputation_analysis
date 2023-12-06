@@ -27,6 +27,7 @@ def get_article_title_publication_date_and_description(input_file):
 
 def get_unique_aritcless_sepcs_from_directory(input_dir):
     unique_article_titles = set()
+    unique_article_description= set()
     duplicate_articles=0
     unique_articles = [] 
     input_dir_path = Path(input_dir)  # Convert to Path object
@@ -36,13 +37,14 @@ def get_unique_aritcless_sepcs_from_directory(input_dir):
         extracted_data = get_article_title_publication_date_and_description(input_file)
         #print(len(extracted_data))
         for article in extracted_data: #Make sure there is no duplicates
-            if article['title'] in unique_article_titles: #If we found a duplicate article
+            #If we found a duplicate article
+            if article['title'] in unique_article_titles or article['description'] in unique_article_description: 
                 duplicate_articles+=1
               
             else:
                 unique_articles.append(article)
-               
                 unique_article_titles.add(article['title'])
+                unique_article_description.add(article['description'])
     print("DUPLICATE ARTICLES NUMBER : " + str(duplicate_articles))
     print("UNIQUE ARTICLES NUMBER : " + str(len(unique_articles)))
     return unique_articles
