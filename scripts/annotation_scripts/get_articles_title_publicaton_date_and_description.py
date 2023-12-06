@@ -34,7 +34,7 @@ def get_unique_aritcless_sepcs_from_directory(input_dir):
     for input_file in input_dir_path.glob('*.json'): #Go through each json file and get the articles 
         #print(input_file)
         extracted_data = get_article_title_publication_date_and_description(input_file)
-        print(len(extracted_data))
+        #print(len(extracted_data))
         for article in extracted_data: #Make sure there is no duplicates
             if article['title'] in unique_article_titles: #If we found a duplicate article
                 duplicate_articles+=1
